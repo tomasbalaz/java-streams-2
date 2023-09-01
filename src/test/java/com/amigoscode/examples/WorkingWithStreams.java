@@ -12,5 +12,15 @@ public class WorkingWithStreams {
     @Test
     void steams() {
         List<String> names = List.of("Amigoscode", "Alex", "Zara");
+        Stream<String> stream = names.stream();
+
+        Stream<String> namesStream = Stream.of("Amigoscode", "Alex", "Zara");
+
+        List<Object> collect = stream
+                .limit(2).map(null).sorted(null).dropWhile(null) // < - Intermediate operators
+                .collect(Collectors.toList()); // < - Terminal operator
+
+        String[] namesArray = {};
+        Arrays.stream(namesArray);
     }
 }
