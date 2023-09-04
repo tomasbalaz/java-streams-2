@@ -40,5 +40,11 @@ public class IntStreams {
 
     @Test
     public void intStreamIterate()  {
+        IntStream.iterate(0, value -> value + 1)
+                .limit(10)
+                .forEach(System.out::println);
+        //LongStream
+        //DoubleStream
+        //Stream.of()
     }
 }
