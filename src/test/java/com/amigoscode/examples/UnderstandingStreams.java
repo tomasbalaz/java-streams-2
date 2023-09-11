@@ -16,6 +16,11 @@ public class UnderstandingStreams {
         List<String> emails = MockData.getPeople()
                 .stream()
                 .map(Person::getEmail)
+//                        .collect(
+//                                () -> new ArrayList<String>(),
+//                                (list, element) -> list.add(element),
+//                                (list1, list2) -> list1.addAll(list2)
+//                        );
                 .collect(
                         ArrayList::new,
                         ArrayList::add,
@@ -26,22 +31,5 @@ public class UnderstandingStreams {
 
     @Test
     public void lazy() throws Exception {
-        System.out.println(
-                MockData.getCars()
-                        .stream()
-                        .filter(car -> {
-                            System.out.println("filter car " + car);
-                            return car.getPrice() < 10000;
-                        })
-                        .map(car -> {
-                            System.out.println("mapping car " + car);
-                            return car.getPrice();
-                        })
-                        .map(price -> {
-                            System.out.println("mapping price " + price);
-                            return price + (price * .14);
-                        })
-                        .collect(Collectors.toList())
-        );
     }
 }
